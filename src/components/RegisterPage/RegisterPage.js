@@ -18,13 +18,15 @@ function RegisterPage() {
     //console.log(watch("email"));
     //console.log('password.current', password.current);
 
+    console.log('RegisterPage.js');
+
     const onSubmit = async (data) => {
         try {
             setloding(true); // 버튼 state 활성화
 
             const auth = getAuth();
             let createdUser = await createUserWithEmailAndPassword(auth, data.email, data.password);
-            //console.log('createdUser', createdUser);
+            console.log('createdUser - RegisterPage.js', createdUser);
             
             await updateProfile(auth.currentUser, {
                 displayName: data.name,

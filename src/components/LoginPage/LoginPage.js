@@ -10,7 +10,10 @@ function LoginPage() {
     const [errorFromSubmit, setErrorFromSubmit] = useState('');
     const [loding, setloding] = useState(false);
 
+    console.log('LoginPage.js');
+
     const onSubmit = async (data) => {
+        console.log('login user - LoginPage.js', data.email);
         try {
             setloding(true); // 버튼 state 활성화
 

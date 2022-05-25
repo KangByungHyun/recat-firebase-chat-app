@@ -23,7 +23,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-console.log('app', app);
+console.log('app-firebase.js', app);
 //const analytics = getAnalytics(app);
 
 export default app;

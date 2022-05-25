@@ -7,13 +7,15 @@ const initialUserState = {
     isLoading: true
 }
 
+console.log('reducers/user_reducer.js');
+
 export default function(state = initialUserState, action) {
     switch(action.type){
         case SET_USER:
             return {
                 ...state,
                 currentUser: action.payload,
-                isLoding: false
+                isLoading: false
             }
 
         default:
