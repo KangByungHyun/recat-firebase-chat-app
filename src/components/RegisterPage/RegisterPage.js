@@ -36,7 +36,7 @@ function RegisterPage() {
             set(ref(getDatabase(), `users/${createdUser.user.uid}`), {
                 name: createdUser.user.displayName,
                 image: createdUser.user.photoURL
-            })
+            });
 
             setloding(false); // 버튼 state 비활성화
         } catch (error) {

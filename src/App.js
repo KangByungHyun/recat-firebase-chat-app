@@ -14,9 +14,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import firebase from './firebase';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setUser 
-} from './redux/actions/user_action';
+import { setUser, clearUser } from './redux/actions/user_action';
 
 //import './firebase'; // 이걸 해줘야 firebase 초기화 index.js로 옮김
 
@@ -31,14 +29,14 @@ function App(props) {
   useEffect(() => { // 컴포넌트가 렌더링 될 때마다 특정 작업을 실행할 수 있도록 하는 Hook
     const auth = getAuth();
 
-    onAuthStateChanged(auth, (user) => { // firebase에서 제공하는 auth 콜백함수
+    onAuthStateChanged(auth, (user) => { // firebase에서 제공하는 auth 콜백함수 : 계속 지켜보고 있음
       console.log('onAuthStateChanged user - App.js', user);
       if (user) {
         navigate("/");
         dispatch(setUser(user)); // redux store에 user 상태를 넣어줌
       } else {
         navigate("/login");
-        //dispatch(clearUser());
+        dispatch(clearUser());
       }
     });
 
